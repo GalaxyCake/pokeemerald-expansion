@@ -51,6 +51,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rotom_start_menu.h"
+
 // Menu actions
 enum
 {
@@ -582,10 +584,12 @@ static void CreateStartMenuTask(TaskFunc followupFunc)
 
 static bool8 FieldCB_ReturnToFieldStartMenu(void)
 {
-    if (InitStartMenuStep() == FALSE)
-    {
-        return FALSE;
-    }
+    // if (InitStartMenuStep() == FALSE)
+    // {
+    //     return FALSE;
+    // }
+  
+    RotomPhone_StartMenu_Open(FALSE);
 
     ReturnToFieldOpenStartMenu();
     return TRUE;
