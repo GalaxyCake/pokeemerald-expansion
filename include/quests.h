@@ -18,7 +18,7 @@
 #define SORT_SUBQUEST 100
 
 #define INCREMENT 1
-#define ALPHA 2 
+#define ALPHA 2
 #define SUB 3
 
 #define OBJECT 1
@@ -37,7 +37,7 @@ struct SubQuest
 	const u16 sprite;
     const u8 spritetype;
     const u8 *type;
-}; 
+};
 
 struct SideQuest
 {
@@ -50,7 +50,7 @@ struct SideQuest
 	const struct SubQuest *subquests;
 	const u8 numSubquests;
 	const u16 questVariable;
-}; 
+};
 
 enum QuestCases
 {

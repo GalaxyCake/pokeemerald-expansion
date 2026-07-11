@@ -566,7 +566,7 @@ static const struct SubQuest sSubQuests2[QUEST_2_SUB_COUNT] =
 //Declaration of side quest structures. Edits to quests are made here.
 static const struct SideQuest sSideQuests[QUEST_COUNT] =
 {
-	[QUEST_1] = 
+	[QUEST_1] =
 	{
 		.name = gText_SideQuestName_1,
 		.desc = {gText_SideQuestDesc_1},
@@ -579,7 +579,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_2] = 
+	[QUEST_2] =
 	{
 		.name = gText_SideQuestName_2,
 		.desc = {gText_SideQuestDesc_2},
@@ -592,7 +592,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_3] = 
+	[QUEST_3] =
 	{
 		.name = gText_SideQuestName_3,
 		.desc = {
@@ -621,7 +621,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = VAR_UNUSED_0x404E //First unused var in vars.h,
 	},
 
-	[QUEST_4] = 
+	[QUEST_4] =
 	{
 		.name = gText_SideQuestName_4,
 		.desc = {gText_SideQuestDesc_4},
@@ -634,7 +634,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_5] = 
+	[QUEST_5] =
 	{
 		.name = gText_SideQuestName_5,
 		.desc = {gText_SideQuestDesc_5},
@@ -647,7 +647,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_6] = 
+	[QUEST_6] =
 	{
 		.name = gText_SideQuestName_6,
 		.desc = {gText_SideQuestDesc_6},
@@ -660,7 +660,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_7] = 
+	[QUEST_7] =
 	{
 		.name = gText_SideQuestName_7,
 		.desc = {gText_SideQuestDesc_7},
@@ -673,7 +673,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_8] = 
+	[QUEST_8] =
 	{
 		.name = gText_SideQuestName_8,
 		.desc = {gText_SideQuestDesc_8},
@@ -686,7 +686,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_9] = 
+	[QUEST_9] =
 	{
 		.name = gText_SideQuestName_9,
 		.desc = {gText_SideQuestDesc_9},
@@ -699,7 +699,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_10] = 
+	[QUEST_10] =
 	{
 		.name = gText_SideQuestName_10,
 		.desc = {gText_SideQuestDesc_10},
@@ -712,7 +712,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_11] = 
+	[QUEST_11] =
 	{
 		.name = gText_SideQuestName_11,
 		.desc = {gText_SideQuestDesc_11},
@@ -725,7 +725,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_12] = 
+	[QUEST_12] =
 	{
 		.name = gText_SideQuestName_12,
 		.desc = {gText_SideQuestDesc_12},
@@ -738,7 +738,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_13] = 
+	[QUEST_13] =
 	{
 		.name = gText_SideQuestName_13,
 		.desc = {gText_SideQuestDesc_13},
@@ -751,7 +751,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_14] = 
+	[QUEST_14] =
 	{
 		.name = gText_SideQuestName_14,
 		.desc = {gText_SideQuestDesc_14},
@@ -764,7 +764,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_15] = 
+	[QUEST_15] =
 	{
 		.name = gText_SideQuestName_15,
 		.desc = {gText_SideQuestDesc_15},
@@ -777,7 +777,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_16] = 
+	[QUEST_16] =
 	{
 		.name = gText_SideQuestName_16,
 		.desc = {gText_SideQuestDesc_16},
@@ -790,7 +790,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_17] = 
+	[QUEST_17] =
 	{
 		.name = gText_SideQuestName_17,
 		.desc = {gText_SideQuestDesc_17},
@@ -803,7 +803,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_18] = 
+	[QUEST_18] =
 	{
 		.name = gText_SideQuestName_18,
 		.desc = {gText_SideQuestDesc_18},
@@ -816,7 +816,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_19] = 
+	[QUEST_19] =
 	{
 		.name = gText_SideQuestName_19,
 		.desc = {gText_SideQuestDesc_19},
@@ -829,7 +829,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_20] = 
+	[QUEST_20] =
 	{
 		.name = gText_SideQuestName_20,
 		.desc = {gText_SideQuestDesc_20},
@@ -842,7 +842,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_21] = 
+	[QUEST_21] =
 	{
 		.name = gText_SideQuestName_21,
 		.desc = {gText_SideQuestDesc_21},
@@ -855,7 +855,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_22] = 
+	[QUEST_22] =
 	{
 		.name = gText_SideQuestName_22,
 		.desc = {gText_SideQuestDesc_22},
@@ -868,7 +868,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_23] = 
+	[QUEST_23] =
 	{
 		.name = gText_SideQuestName_23,
 		.desc = {gText_SideQuestDesc_23},
@@ -881,7 +881,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_24] = 
+	[QUEST_24] =
 	{
 		.name = gText_SideQuestName_24,
 		.desc = {gText_SideQuestDesc_24},
@@ -894,7 +894,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_25] = 
+	[QUEST_25] =
 	{
 		.name = gText_SideQuestName_25,
 		.desc = {gText_SideQuestDesc_25},
@@ -907,7 +907,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_26] = 
+	[QUEST_26] =
 	{
 		.name = gText_SideQuestName_26,
 		.desc = {gText_SideQuestDesc_26},
@@ -920,7 +920,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_27] = 
+	[QUEST_27] =
 	{
 		.name = gText_SideQuestName_27,
 		.desc = {gText_SideQuestDesc_27},
@@ -933,7 +933,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_28] = 
+	[QUEST_28] =
 	{
 		.name = gText_SideQuestName_28,
 		.desc = {gText_SideQuestDesc_28},
@@ -946,7 +946,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_29] = 
+	[QUEST_29] =
 	{
 		.name = gText_SideQuestName_29,
 		.desc = {gText_SideQuestDesc_29},
@@ -959,7 +959,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.questVariable = 0,
 	},
 
-	[QUEST_30] = 
+	[QUEST_30] =
 	{
 		.name = gText_SideQuestName_30,
 		.desc = {gText_SideQuestDesc_30},
@@ -969,7 +969,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 		.spritetype = {OBJECT},
 		.subquests = NULL,
 		.numSubquests = 0,
-		.questVariable = 0,	
+		.questVariable = 0,
 	},
 };
 ////////////////////////END QUEST CUSTOMIZATION////////////////////////////////
@@ -1633,7 +1633,7 @@ static u8 CountNumberListRows()
 		case SORT_DONE:
 			return CountCompletedQuests() + 1;
 	}
-	
+
 	return 1;
 }
 
@@ -2180,7 +2180,7 @@ void PrintQuestFlavorText(s32 questId)
 static const u8 *GetQuestLocation(s32 questId)
 {
 	u32 qvar = VarGet(sSideQuests[questId].questVariable);
-	
+
 	if (sSideQuests[questId].map[qvar] == NULL)
 		qvar = 0;
 
@@ -2190,7 +2190,7 @@ static const u8 *GetQuestLocation(s32 questId)
 static const u8 *GetQuestDesc(s32 questId)
 {
 	u32 qvar = VarGet(sSideQuests[questId].questVariable);
-	
+
 	if (sSideQuests[questId].desc[qvar] == NULL)
 		qvar = 0;
 
@@ -2377,7 +2377,7 @@ static void QuestMenu_DestroySprite(u8 idx)
 static u32 GetQuestSprite(s32 questId)
 {
 	u32 qvar = VarGet(sSideQuests[questId].questVariable);
-	
+
 	if (sSideQuests[questId].sprite[qvar] == 0)
 		qvar = 0;
 
@@ -2387,7 +2387,7 @@ static u32 GetQuestSprite(s32 questId)
 static u32 GetQuestSpriteType(s32 questId)
 {
 	u32 qvar = VarGet(sSideQuests[questId].questVariable);
-	
+
 	if (sSideQuests[questId].spritetype[qvar] == 0)
 		qvar = 0;
 
