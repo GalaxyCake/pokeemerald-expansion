@@ -588,7 +588,7 @@ static bool8 FieldCB_ReturnToFieldStartMenu(void)
     // {
     //     return FALSE;
     // }
-  
+
     RotomPhone_StartMenu_Open(FALSE);
 
     ReturnToFieldOpenStartMenu();

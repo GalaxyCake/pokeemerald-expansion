@@ -126,7 +126,7 @@ flag, or save game options.
     RotomPhone_StartMenu_UpdateRotomFaceAnim(bool32 input).
 
 
-    
+
         --  How to Add a New Option --
 
 1.  When adding a new menu option, the first thing you must do
@@ -147,7 +147,7 @@ flag, or save game options.
     are two icon files, 'icons_1.png' and 'icons_2.png'. These have
     a lot more freedom and can use any combination of colours, apart
     from PAL_ROTOM_OUTLINE (index 11) upwards in 'icons_1.png'.
-    
+
     Then define a new animation for this icon, and add it to
     sAnims_StartMenu_Icons making sure you keep track of what
     icon belongs to what animation.
@@ -181,7 +181,7 @@ flag, or save game options.
         RotomPhone_StartMenu_DoCleanUpAndCreateTask
         RotomPhone_StartMenu_DoCleanUpAndChangeTaskFunc
         RotomPhone_StartMenu_DoCleanUpAndDestroyTask
-    
+
     u32 owIconPalSlot;
     The palette index the icon uses other than PAL_ICON_WHITE in it's overworld
     icon. enum RotomPhone_Overworld_FaceIconPaletteIndex exists to help facilitate
