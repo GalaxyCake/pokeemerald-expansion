@@ -98,4 +98,5 @@ s32 ComfyAnimEasing_EaseOutCubic(s32 t);
 s32 ComfyAnimEasing_EaseInOutCubic(s32 t);
 s32 ComfyAnimEasing_EaseInOutBack(s32 t);
 
+
 #endif // COMFY_ANIM_H

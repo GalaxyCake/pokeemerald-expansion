@@ -240,7 +240,7 @@ enum RotomPhone_Colours
 #define RP_CONFIG_NUM_MINUTES_TO_UPDATE   1
 #define RP_CONFIG_UPDATE_MESSAGE          TRUE
 #define RP_CONFIG_UPDATE_MESSAGE_SOUND    TRUE
-#define RP_CONFIG_FACE_UPDATE_PERCENT     100
+#define RP_CONFIG_FACE_UPDATE_PERCENT     35
 
 void RotomPhone_StartMenu_Open(bool32 firstInit);
 
