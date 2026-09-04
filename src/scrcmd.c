@@ -41,6 +41,7 @@
 #include "mystery_event_script.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "quests.h"
 #include "pokedex.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
@@ -3392,5 +3393,125 @@ bool8 ScrCmd_normalmsg(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1);
 
     gMsgIsSignPost = FALSE;
+    return FALSE;
+}
+
+// ==================== Quest Menu script commands (ported) ====================
+bool8 ScrCmd_questmenu(struct ScriptContext *ctx)
+{
+    u8 caseId = ScriptReadByte(ctx);
+    u8 questId = VarGet(ScriptReadByte(ctx));
+
+    switch (caseId)
+    {
+    case QUEST_MENU_OPEN:
+        BeginNormalPaletteFade(0xFFFFFFFF, 2, 16, 0, 0);
+        QuestMenu_Init(0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        ScriptContext_Stop();
+        return TRUE;
+    case QUEST_MENU_UNLOCK_QUEST:
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_UNLOCKED);
+        break;
+    case QUEST_MENU_SET_ACTIVE:
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_UNLOCKED);
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_ACTIVE);
+        break;
+    case QUEST_MENU_SET_REWARD:
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_UNLOCKED);
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_REWARD);
+        QuestMenu_GetSetQuestState(questId, FLAG_REMOVE_ACTIVE);
+        break;
+    case QUEST_MENU_COMPLETE_QUEST:
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_UNLOCKED);
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_COMPLETED);
+        QuestMenu_GetSetQuestState(questId, FLAG_REMOVE_ACTIVE);
+        QuestMenu_GetSetQuestState(questId, FLAG_REMOVE_REWARD);
+        break;
+    case QUEST_MENU_CHECK_UNLOCKED:
+        gSpecialVar_Result = QuestMenu_GetSetQuestState(questId, FLAG_GET_UNLOCKED) != FALSE;
+        break;
+    case QUEST_MENU_CHECK_INACTIVE:
+        gSpecialVar_Result = QuestMenu_GetSetQuestState(questId, FLAG_GET_INACTIVE) != FALSE;
+        break;
+    case QUEST_MENU_CHECK_ACTIVE:
+        gSpecialVar_Result = QuestMenu_GetSetQuestState(questId, FLAG_GET_ACTIVE) != FALSE;
+        break;
+    case QUEST_MENU_CHECK_REWARD:
+        gSpecialVar_Result = QuestMenu_GetSetQuestState(questId, FLAG_GET_REWARD) != FALSE;
+        break;
+    case QUEST_MENU_CHECK_COMPLETE:
+        gSpecialVar_Result = QuestMenu_GetSetQuestState(questId, FLAG_GET_COMPLETED) != FALSE;
+        break;
+    case QUEST_MENU_BUFFER_QUEST_NAME:
+        QuestMenu_CopyQuestName(gStringVar1, questId);
+        break;
+    default:
+        gSpecialVar_Result = FALSE;
+        break;
+    }
+
+    return FALSE;
+}
+
+bool8 ScrCmd_returnqueststate(struct ScriptContext *ctx)
+{
+    u8 questId = VarGet(ScriptReadByte(ctx));
+
+    gSpecialVar_Result = 0;
+
+    if (QuestMenu_GetSetQuestState(questId, FLAG_GET_INACTIVE)){
+        gSpecialVar_Result = FLAG_GET_INACTIVE;
+        return FALSE;
+    }
+    if (QuestMenu_GetSetQuestState(questId, FLAG_GET_ACTIVE)){
+        gSpecialVar_Result = FLAG_GET_ACTIVE;
+        return FALSE;
+    }
+    if (QuestMenu_GetSetQuestState(questId, FLAG_GET_REWARD)){
+        gSpecialVar_Result = FLAG_GET_REWARD;
+        return FALSE;
+    }
+    if (QuestMenu_GetSetQuestState(questId, FLAG_GET_COMPLETED)){
+        gSpecialVar_Result = FLAG_GET_COMPLETED;
+        return FALSE;
+    }
+
+    return FALSE;
+}
+
+bool8 ScrCmd_subquestmenu(struct ScriptContext *ctx)
+{
+    u8 caseId = ScriptReadByte(ctx);
+    u8 parentId = VarGet(ScriptReadHalfword(ctx));
+    u8 childId = VarGet(ScriptReadHalfword(ctx));
+
+    switch (caseId)
+    {
+        case QUEST_MENU_COMPLETE_QUEST:
+            QuestMenu_GetSetSubquestState(parentId ,FLAG_SET_COMPLETED,childId);
+            break;
+        case QUEST_MENU_CHECK_COMPLETE:
+            gSpecialVar_Result = QuestMenu_GetSetSubquestState(parentId, FLAG_GET_COMPLETED, childId) != FALSE;
+            break;
+        case QUEST_MENU_BUFFER_QUEST_NAME:
+            QuestMenu_CopySubquestName(gStringVar1, parentId, childId);
+            break;
+        default:
+            gSpecialVar_Result = FALSE;
+            break;
+    }
+
+    return FALSE;
+}
+
+//updatequest by mudskipper
+bool8 ScrCmd_updatequest(struct ScriptContext *ctx)
+{
+    u8 questId = VarGet(ScriptReadByte(ctx));
+    u32 varId = QuestMenu_GetQuestVariableId(questId); // VAR_UNUSED_XXXX
+
+    if (varId != 0)
+        VarSet(varId, QuestMenu_GetQuestVariable(questId) + 1);
+
     return FALSE;
 }

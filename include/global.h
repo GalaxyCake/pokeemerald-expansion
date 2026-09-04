@@ -12,6 +12,7 @@
 #include "metaprogram.h"
 #include "constants/global.h"
 #include "constants/flags.h"
+#include "constants/quests.h"
 #include "constants/vars.h"
 #include "constants/species.h"
 #include "constants/pokedex.h"
@@ -254,6 +255,7 @@ struct NPCFollower
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
+#define ROTOM_REALITY_SAVED_APP_CAPACITY 32
 struct SaveBlock3
 {
 #if OW_USE_FAKE_RTC
@@ -272,6 +274,12 @@ struct SaveBlock3
 #if APRICORN_TREE_COUNT > 0
     u8 apricornTrees[NUM_APRICORN_TREE_BYTES];
 #endif
+    u16 rotomRealityMenuOrderMagic;
+    u8 rotomRealityMenuOrderCount;
+    u8 rotomRealityMenuOrder[ROTOM_REALITY_SAVED_APP_CAPACITY];
+    u32 questDataMagic;
+    u8 questData[QUEST_COUNT * 5 / 8 + 1]; // Quest menu: 5 state bits per quest
+    u8 subQuests[SUB_QUEST_COUNT / 8 + 1]; // Quest menu: 1 bit per subquest
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
