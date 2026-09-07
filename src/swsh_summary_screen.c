@@ -32,6 +32,7 @@
 #include "mon_markings.h"
 #include "move_relearner.h"
 #include "naming_screen.h"
+#include "ow_abilities.h"
 #include "party_menu.h"
 #include "palette.h"
 #include "pokeball.h"
@@ -3839,6 +3840,14 @@ static void PrintNotEggInfo(void)
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_INFO);
 }
 
+static u32 GetEggCyclesToSubtract(void)
+{
+    u32 result = 1;
+    if (DoesPartyHaveIncubatorMon())
+        result += 1;
+    return result;
+}
+
 static void PrintEggStepsRemaining(void)
 {
     u32 eggCycles = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_FRIENDSHIP);
@@ -3855,13 +3864,13 @@ static void PrintEggStepsRemaining(void)
     #endif
 
     // Handle fast-hatching abilities like Flame Body, etc.
-    u8 cyclesToSubtract = GetEggCyclesToSubtract();
+    u8 toSub = GetEggCyclesToSubtract();
     u32 stepsRemaining;
 
     // Calculate how many actual step cycles are needed
     // 1. Round up division
     // 2. Add 1 for the last cycle (GF Jank?)
-    u32 cyclesNeeded = ((eggCycles + cyclesToSubtract - 1) / cyclesToSubtract) + 1;
+    u32 cyclesNeeded = ((eggCycles + toSub - 1) / toSub) + 1;
     stepsRemaining = ((cyclesNeeded) * stepsPerCycle) - stepsInCurrentCycle;
 
     ConvertIntToDecimalStringN(gStringVar1, stepsRemaining, STR_CONV_MODE_LEFT_ALIGN, 5);
@@ -4578,7 +4587,13 @@ static void BufferStat(u8 *dst, u32 stat, u32 strId, u32 align)
 
 static void PrintStats(u8 mode)
 {
-    u16 hp, hp2, atk, def, spA, spD, spe;
+    u16 hp = 0;
+    u16 hp2 = 0;
+    u16 atk = 0;
+    u16 def = 0;
+    u16 spA = 0;
+    u16 spD = 0;
+    u16 spe = 0;
     u8 windowId;
 
     FillWindowPixelBuffer(sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_SKILLS_STATS], 0);
@@ -5539,7 +5554,7 @@ static void PrintMoveNameAndPP(u8 slotIndex)
     if (move != MOVE_NONE)
     {
         u8 pp = CalculatePPWithBonus(move, summary->ppBonuses, slotIndex);
-        u8 ppState = GetCurrentPpToMaxPpState(summary->pp[slotIndex], pp);
+        u8 ppState = GetCurrentPPToMaxPPState(summary->pp[slotIndex], pp);
         ConvertIntToDecimalStringN(gStringVar1, summary->pp[slotIndex], STR_CONV_MODE_RIGHT_ALIGN, 2);
         ConvertIntToDecimalStringN(gStringVar2, pp, STR_CONV_MODE_RIGHT_ALIGN, 2);
         DynamicPlaceholderTextUtil_Reset();
